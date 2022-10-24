@@ -69,7 +69,7 @@ for each1 in logs1:
     df1 = pd.DataFrame(data={'time': dt1, 'error': er1})
 
 
-time.sleep(20)
+time.sleep(30)
 driver.get(url2)
 time.sleep(10)
 
@@ -89,7 +89,7 @@ for each2 in logs2:
     df2 = pd.DataFrame(data={'time': dt2, 'error': er2})
 
 
-time.sleep(20)
+time.sleep(30)
 driver.get(url3)
 time.sleep(10)
 
@@ -109,7 +109,7 @@ for each3 in logs3:
     df3 = pd.DataFrame(data={'time': dt3, 'error': er3})
 
 
-time.sleep(20)
+time.sleep(30)
 driver.get(url4)
 time.sleep(10)
 
@@ -135,4 +135,3 @@ with pd.ExcelWriter('C:/Users/serg.pudikov/QA Files/Grafana.xlsx') as writer:
     df4.to_excel(writer, sheet_name='Instance_4')
 
 driver.quit()
-
