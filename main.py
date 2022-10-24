@@ -14,6 +14,7 @@ import pandas as pd
 import time
 from bs4 import BeautifulSoup
 import requests
+from datetime import date
 
 # Excel
 # Getting loannumber from error message: =IFERROR(MID(C2,77,7),"")
@@ -71,7 +72,7 @@ for each1 in logs1:
 
 time.sleep(30)
 driver.get(url2)
-time.sleep(10)
+time.sleep(20)
 
 soup2 = BeautifulSoup(driver.page_source, 'lxml')
 logs2 = soup2.find_all('tr', class_='css-i3vz2t-logs-row')
@@ -91,7 +92,7 @@ for each2 in logs2:
 
 time.sleep(30)
 driver.get(url3)
-time.sleep(10)
+time.sleep(20)
 
 soup3 = BeautifulSoup(driver.page_source, 'lxml')
 logs3 = soup3.find_all('tr', class_='css-i3vz2t-logs-row')
@@ -111,7 +112,7 @@ for each3 in logs3:
 
 time.sleep(30)
 driver.get(url4)
-time.sleep(10)
+time.sleep(20)
 
 soup4 = BeautifulSoup(driver.page_source, 'lxml')
 logs4 = soup4.find_all('tr', class_='css-i3vz2t-logs-row')
@@ -128,7 +129,9 @@ for each4 in logs4:
 
     df4 = pd.DataFrame(data={'time': dt4, 'error': er4})
 
-with pd.ExcelWriter('C:/Users/serg.pudikov/QA Files/Grafana.xlsx') as writer:
+current_date = date.today()
+
+with pd.ExcelWriter(path='C:/Users/serg.pudikov/QA Files/Grafana.xlsx') as writer:
     df1.to_excel(writer, sheet_name='Instance_1')
     df2.to_excel(writer, sheet_name='Instance_2')
     df3.to_excel(writer, sheet_name='Instance_3')
