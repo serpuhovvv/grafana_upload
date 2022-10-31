@@ -129,11 +129,13 @@ for each4 in logs4:
     df4 = pd.DataFrame(data={'time': dt4, 'error': er4})
 
 current_date = date.today()
+df5 = pd.DataFrame(data={'current date': current_date.text})
 
 with pd.ExcelWriter(path='C:/Users/serg.pudikov/QA Files/Grafana.xlsx') as writer:
     df1.to_excel(writer, sheet_name='Instance_1')
     df2.to_excel(writer, sheet_name='Instance_2')
     df3.to_excel(writer, sheet_name='Instance_3')
     df4.to_excel(writer, sheet_name='Instance_4')
+    df5.to_excel(writer, sheet_name='Current Date')
 
 driver.quit()
