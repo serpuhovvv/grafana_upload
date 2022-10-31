@@ -38,7 +38,6 @@ def wait_xpath(xpath):
     return element
 
 
-global driver
 driver = webdriver.Chrome()
 driver.maximize_window()
 driver.get(url1)
