@@ -23,6 +23,9 @@ from datetime import date
 # Asserting doctype and docname exist =IF(ISNUMBER(SEARCH("DocumentTypeName", E2)), E2, "")
 # Копировать и вставить туда же полученные значения с опцией только значения, нажать на ошибку и отформатировать в числа
 
+login = ''
+password = ''
+
 url1 = 'https://logs-prod.admortgage.net:3000/d/CeDhaW97k1/logs?orgId=1&var-host=edms_prod&var-service=edms_prod_OpenCloseFilesSync&var-app=All&from=now-90d&to=now&viewPanel=6'
 url2 = 'https://logs-prod.admortgage.net:3000/d/CeDhaW97k1/logs?orgId=1&var-host=edms_prod&var-service=edms_prod_OpenCloseFilesSync_Instance2&var-app=All&from=now-90d&to=now&viewPanel=6'
 url3 = 'https://logs-prod.admortgage.net:3000/d/CeDhaW97k1/logs?orgId=1&var-host=edms_prod&var-service=edms_prod_OpenCloseFilesSync_Instance3&var-app=All&from=now-90d&to=now&viewPanel=6'
@@ -43,9 +46,9 @@ driver.maximize_window()
 driver.get(url1)
 
 wait_xpath('//*[@id="reactRoot"]/div[1]/main/div[3]/div/div[2]/div/div[2]/div[2]/a').click()
-wait_xpath('//*[@id="i0116"]').send_keys('serg.pudikov@admortgage.com')
+wait_xpath('//*[@id="i0116"]').send_keys(login)
 wait_xpath('//*[@id="idSIButton9"]').click()
-wait_xpath('//*[@id="i0118"]').send_keys('Coq05714')
+wait_xpath('//*[@id="i0118"]').send_keys(password)
 wait_xpath('//*[@id="idSIButton9"]').click()
 wait_xpath('//*[@id="idDiv_SAOTCS_Proofs"]/div[1]/div/div/div[2]').click()
 wait_xpath('//*[@id="idTxtBx_SAOTCC_OTC"]').send_keys(input('Verification Code: '))
